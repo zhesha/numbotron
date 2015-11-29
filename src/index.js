@@ -1,3 +1,5 @@
-import c from './game.js';
+import Game from './game.js';
 
-console.log(c);
+document.addEventListener("DOMContentLoaded", function() {
+    Game.start();
+});

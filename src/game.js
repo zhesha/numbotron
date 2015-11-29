@@ -1,3 +1,5 @@
-var c = 'uuu';
-console.log(c);
-export default c;
+class Game {
+    start () {
+    }
+}
+export default Game;

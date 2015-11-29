@@ -5,7 +5,7 @@ var buffer = require('vinyl-buffer');
 var babelify = require('babelify');
 var gutil = require('gutil');
 
-gulp.task('sc', () => {
+gulp.task('default', () => {
     var b = browserify({
         entries: ['src/index.js'],
         cache: {},
