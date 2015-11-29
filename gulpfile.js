@@ -1,11 +1,12 @@
 var gulp = require("gulp");
+var watch = require('gulp-watch');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var babelify = require('babelify');
 var gutil = require('gutil');
 
-gulp.task('default', () => {
+gulp.task('build', () => {
     var b = browserify({
         entries: ['src/index.js'],
         cache: {},
@@ -21,3 +22,9 @@ gulp.task('default', () => {
         .pipe(buffer())
         .pipe(gulp.dest('dist'));
 });
+
+gulp.task('watch', () => {
+    gulp.watch('src/**/*.js', ['build']);
+});
+
+gulp.task('default', ['watch', 'build']);
