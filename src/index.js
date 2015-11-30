@@ -1,5 +1,5 @@
-import Game from './Game.js';
+import main from './main.js';
 
 document.addEventListener("DOMContentLoaded", function() {
-    Game.start();
+    main.start();
 });
