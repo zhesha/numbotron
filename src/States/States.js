@@ -1,6 +1,7 @@
 class States{
     constructor () {
-        this.states = this.createStates([null, 'game', 'results']);
+        this.index = [null, 'game', 'results'];
+        this.states = this.createStates(this.index);
         this.config(null, 'game');
         this.config('game', 'results');
         this.config('results', 'game');
@@ -43,6 +44,15 @@ class States{
 
     get is () {
         return this.current;
+    }
+
+    add (fromState, toState, handler) {
+        this.states[this.index.indexOf(fromState)].transitions.some(v => {
+            if (v.transition == toState) {
+                v.fn.push(handler);
+                return true;
+            }
+        });
     }
 }
 
