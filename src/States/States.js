@@ -8,13 +8,13 @@ class States{
 
     createStates (states) {
         this.current = states[0];
-        return states.map(v => {return {state: v, inputs: []}});
+        return states.map(v => {return {state: v, transitions: []}});
     }
 
-    config (state, input) {
+    config (state, transition) {
         this.states.some(v => {
             if (v.state == state) {
-                v.inputs.push({input: input, fn: []});
+                v.transitions.push({transition: transition, fn: []});
                 return true;
             }
         });
@@ -25,9 +25,9 @@ class States{
         var legal = false;
         this.states.some(v => {
             if (v.state == curr) {
-                legal = v.inputs.some(input => {
-                    if (input.input == state) {
-                        input.fn.forEach(fn => fn());
+                legal = v.transitions.some(transition => {
+                    if (transition.transition == state) {
+                        transition.fn.forEach(fn => fn());
                         return true;
                     }
                 });
@@ -37,7 +37,7 @@ class States{
         if (legal) {
             this.current = state;
         } else {
-            console.error('illegal input')
+            console.error('illegal transition')
         }
     }
 
