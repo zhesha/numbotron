@@ -1,7 +1,7 @@
 import Field from './Field.js';
 
 var Controller = {
-    ToGame: () => {
+    toGame: () => {
         new Field(document.getElementById('gameFieldWrapper'));
     },
     GameToResults: () => {

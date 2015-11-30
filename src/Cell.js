@@ -1,6 +1,9 @@
 class Cell {
-    constructor () {
-
+    constructor (row) {
+        let cell = document.createElement("div");
+        cell.className = 'cell';
+        row.appendChild(cell);
+        this.container = cell;
     }
 
     set value (v) {
