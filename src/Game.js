@@ -43,6 +43,12 @@ class Game {
         if (value % 3 == 0 && neighbors.length >= 3) {
             neighbors.cells.forEach(v => v.value = null);
             let newVal = value * neighbors.length;
+            //debugger;
+            this.field.getCell(row, col).value = newVal;
+            this.check(newVal, row, col);
+        } else if (value % 2 == 0 && neighbors.length >= 2) {
+            neighbors.cells.forEach(v => v.value = null);
+            let newVal = value * neighbors.length;
             this.field.getCell(row, col).value = newVal;
             this.check(newVal, row, col);
         } else {
