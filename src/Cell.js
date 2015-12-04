@@ -11,6 +11,7 @@ class Cell {
         cell.addEventListener('click', () => {
             this.value = Next.value;
             Game.step(Next.value, row, col);
+            Next.generate();
         });
         this.container = cell;
     }
