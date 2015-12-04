@@ -13,8 +13,17 @@ class Field {
             wrapper.appendChild(row);
             grid.push([]);
             for (let j = 0; j < COLS; j ++) {
-                grid[i].push(new Cell(row));
+                grid[i].push(new Cell(row, i, j));
             }
+        }
+    }
+
+    getCell (row, col) {
+        var tmp = this.grid[row];
+        if (tmp) {
+            return tmp[col];
+        } else {
+            return null;
         }
     }
 }
