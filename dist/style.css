@@ -1,0 +1,17 @@
+#gameFieldWrapper {
+  width: 400px;
+  height: 400px;
+  margin: 100px auto 0 auto;
+}
+#gameFieldWrapper .row {
+  height: 80px;
+  width: 400px;
+}
+#gameFieldWrapper .cell {
+  height: 80px;
+  width: 80px;
+  float: left;
+  outline: 1px #000 solid;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLmxlc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBSUE7RUFDRSxZQUFBO0VBQ0EsYUFBQTtFQUNBLHlCQUFBOztBQUhGLGlCQUtFO0VBQ0UsWUFBQTtFQUNBLFlBQUE7O0FBUEosaUJBVUU7RUFDRSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFdBQUE7RUFDQSx1QkFBQSIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAY2VsbFNpemU6IDgwcHg7XG5Acm93czogNTtcbkBjb2xzOiA1O1xuXG4jZ2FtZUZpZWxkV3JhcHBlciB7XG4gIHdpZHRoOiBAY29scyAqIEBjZWxsU2l6ZTtcbiAgaGVpZ2h0OiBAcm93cyAqIEBjZWxsU2l6ZTtcbiAgbWFyZ2luOiAxMDBweCBhdXRvIDAgYXV0bztcblxuICAucm93IHtcbiAgICBoZWlnaHQ6IEBjZWxsU2l6ZTtcbiAgICB3aWR0aDogQGNvbHMgKiBAY2VsbFNpemU7XG4gIH1cblxuICAuY2VsbCB7XG4gICAgaGVpZ2h0OiBAY2VsbFNpemU7XG4gICAgd2lkdGg6IEBjZWxsU2l6ZTtcbiAgICBmbG9hdDogbGVmdDtcbiAgICBvdXRsaW5lOiAxcHggIzAwMCBzb2xpZDtcbiAgfVxufSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */
