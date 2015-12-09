@@ -5,11 +5,11 @@ class Next extends CellBase {
         super();
         this.container.className = 'next';
         document.getElementById('nextWrapper').appendChild(this.container);
-        this.value = 3;
+        this.generate();
     }
 
     generate () {
-        this.value = Math.round(Math.random() + 2);
+        this.value = Math.round(Math.random() * 3);
     }
 }
 

@@ -4,7 +4,7 @@ class CellBase {
     }
 
     set value (v) {
-        this.container.innerText = v ? v : '';
+        this.container.innerText = v != null ? v : '';
         this.val = v;
     }
 

@@ -2,10 +2,19 @@
 @rows: 5;
 @cols: 5;
 
+.cell () {
+  height: @cellSize;
+  width: @cellSize;
+  line-height: @cellSize;
+  outline: 1px #000 solid;
+  text-align: center;
+  font-weight: bold;
+}
+
 #gameFieldWrapper {
   width: @cols * @cellSize;
   height: @rows * @cellSize;
-  margin: 100px auto 0 auto;
+  margin: 10px auto 0 auto;
 
   .row {
     height: @cellSize;
@@ -13,22 +22,34 @@
   }
 
   .cell {
-    height: @cellSize;
-    width: @cellSize;
-    line-height: @cellSize;
-    text-align: center;
+    .cell();
     float: left;
-    outline: 1px #000 solid;
   }
 }
 
-#nextWrapper {
-  .next {
-    margin: auto;
-    height: @cellSize;
-    width: @cellSize;
-    line-height: @cellSize;
-    text-align: center;
-    outline: 1px #000 solid;
+.controlWrapper {
+  height: @cellSize;
+  width: @cols * @cellSize;
+  margin: auto;
+
+  #nextWrapper {
+    .next {
+      .cell ();
+      float: left;
+    }
+  }
+
+  #starWrapper {
+    .star {
+      .cell ();
+      margin: auto;
+    }
+  }
+
+  #stashWrapper {
+    .stash {
+      .cell ();
+      float: right;
+    }
   }
 }
