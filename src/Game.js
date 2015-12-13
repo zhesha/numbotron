@@ -54,7 +54,7 @@ class Game {
             let newVal = value * neighbors.length;
             this.field.getCell(row, col).value = newVal;
             this.check(newVal, row, col);
-        } else if (value == 1) {
+        } else if (value == 1 && neighbors.length >= 2) {
             neighbors.cells.forEach(v => v.value = null);
             let newVal = value * (neighbors.length == 0 ? 1 : neighbors.length);
             this.field.getCell(row, col).value = newVal;
