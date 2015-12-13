@@ -1,4 +1,5 @@
 import Next from './Next.js';
+import Stash from './Stash.js';
 
 class NeighborManager {
     constructor (field, value, row, col) {
