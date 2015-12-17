@@ -53,3 +53,14 @@
     }
   }
 }
+
+.scoreWrapper {
+  height: @cellSize;
+  width: @cols * @cellSize;
+  margin: auto;
+
+  .score {
+    .cell ();
+    float: right;
+  }
+}

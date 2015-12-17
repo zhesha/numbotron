@@ -1,6 +1,7 @@
 class CellBase {
     constructor () {
         this.container = document.createElement("div");
+        this.val = 0;
     }
 
     set value (v) {
