@@ -10,9 +10,11 @@ class Cell extends CellBase {
         this.container.className = 'cell';
         wrapper.appendChild(this.container);
         this.container.addEventListener('click', () => {
-            this.value = Next.value;
-            Game.step(Next.value, row, col);
-            Next.generate();
+            if (!this.value) {
+                this.value = Next.value;
+                Game.step(Next.value, row, col);
+                Next.generate();
+            }
         });
     }
 }
