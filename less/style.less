@@ -1,63 +1,85 @@
 @cellSize: 80px;
 @rows: 5;
 @cols: 5;
+@marg: 4px;
 
 .cell () {
   height: @cellSize;
   width: @cellSize;
   line-height: @cellSize;
-  outline: 1px #000 solid;
   text-align: center;
   font-weight: bold;
+  color: #776e65;
+  border-radius: 4px;
+  font-size: 24px;
+}
+
+.controlCell {
+  margin: auto;
+  background: #bbada0;
+  font-size: 14px;
+  text-align: center;
+}
+
+body {
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  width: 444px;
+  margin: auto;
 }
 
 #gameFieldWrapper {
-  width: @cols * @cellSize;
-  height: @rows * @cellSize;
+  width: @cols * @cellSize + @marg * 2 * (@cols);
+  height: @rows * @cellSize + @marg * 2 * (@rows);
+  border-radius: 4px;
+  background: #bbada0;
+  padding: @marg / 2;
   margin: 10px auto 0 auto;
 
   .row {
     height: @cellSize;
-    width: @cols * @cellSize;
   }
 
   .cell {
     .cell();
     float: left;
+    background: rgba(238, 228, 218, 0.35);
+    margin: @marg;
   }
 }
 
 .controlWrapper {
-  height: @cellSize;
+  height: 120px;
   width: @cols * @cellSize;
   margin: auto;
+  padding-top: 20px;
+  clear: both;
 
-  #nextWrapper {
+  .nextContainer {
+    .controlCell();
+    float: left;
+    background: #bbada0;
     .next {
       .cell ();
-      float: left;
     }
   }
 
-  #starWrapper {
-    .star {
-      .cell ();
-      margin: auto;
-    }
-  }
 
-  #stashWrapper {
+
+  .stashContainer {
+    float: right;
+    background: #bbada0;
+    .controlCell();
     .stash {
       .cell ();
-      float: right;
     }
   }
 }
 
 .scoreWrapper {
-  height: @cellSize;
-  width: @cols * @cellSize;
-  margin: auto;
+  .controlCell();
+  float: right;
+  clear: both;
+
 
   .score {
     .cell ();
