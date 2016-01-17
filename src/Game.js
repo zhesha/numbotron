@@ -1,4 +1,7 @@
 import Next from './Next.js';
+import Stash from './Stash.js';
+import Score from './Score.js';
+import Stars from './Stars.js';
 
 class NeighborManager {
     constructor (field, value, row, col) {
@@ -35,24 +38,38 @@ class Game {
     }
 
     step (value, row, col) {
+        Score.value += value;
         this.check(value, row, col);
     }
 
     check (value, row, col) {
+        var collapse = (newVal) => {
+            Score.value += newVal;
+            neighbors.cells.forEach(v => v.value = null);
+            field.getCell(row, col).value = newVal;
+            this.check(newVal, row, col);
+        };
+
+        var field = this.field;
+        if (value == 0) {
+            field.getCell(row, col).value = value;
+            return;
+        }
         var neighbors = new NeighborManager(this.field, value, row, col);
         if (value % 3 == 0 && neighbors.length >= 3) {
-            neighbors.cells.forEach(v => v.value = null);
             let newVal = value * neighbors.length;
-            //debugger;
-            this.field.getCell(row, col).value = newVal;
-            this.check(newVal, row, col);
+            collapse(newVal);
         } else if (value % 2 == 0 && neighbors.length >= 2) {
-            neighbors.cells.forEach(v => v.value = null);
             let newVal = value * neighbors.length;
-            this.field.getCell(row, col).value = newVal;
-            this.check(newVal, row, col);
-        } else {
-            this.field.getCell(row, col).value = value;
+            collapse(newVal);
+        } else if (value == 1 && neighbors.length >= 2) {
+            let newVal = value * (neighbors.length == 0 ? 1 : neighbors.length);
+            debugger;
+            collapse(newVal);
+            if (newVal == 5) {
+                Stars.value++;
+                field.getCell(row, col).value = null;
+            }
         }
     }
 }

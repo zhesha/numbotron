@@ -1,28 +1,21 @@
 import Game from './Game.js';
 import Next from './Next.js';
+import CellBase from './CellBase.js';
 
-class Cell {
+class Cell extends CellBase {
     constructor (wrapper, row, col) {
+        super();
         this.row = row;
         this.col = col;
-        let cell = document.createElement("div");
-        cell.className = 'cell';
-        wrapper.appendChild(cell);
-        cell.addEventListener('click', () => {
-            this.value = Next.value;
-            Game.step(Next.value, row, col);
-            Next.generate();
+        this.container.className = 'cell';
+        wrapper.appendChild(this.container);
+        this.container.addEventListener('click', () => {
+            if (!this.value) {
+                this.value = Next.value;
+                Game.step(Next.value, row, col);
+                Next.generate();
+            }
         });
-        this.container = cell;
-    }
-
-    set value (v) {
-        this.container.innerText = v ? v : '';
-        this.val = v;
-    }
-
-    get value () {
-        return this.val;
     }
 }
 
