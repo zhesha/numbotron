@@ -1,6 +1,7 @@
 import Next from './Next.js';
 import Stash from './Stash.js';
 import Score from './Score.js';
+import Stars from './Stars.js';
 
 class NeighborManager {
     constructor (field, value, row, col) {
@@ -63,7 +64,12 @@ class Game {
             collapse(newVal);
         } else if (value == 1 && neighbors.length >= 2) {
             let newVal = value * (neighbors.length == 0 ? 1 : neighbors.length);
+            debugger;
             collapse(newVal);
+            if (newVal == 5) {
+                Stars.value++;
+                field.getCell(row, col).value = null;
+            }
         }
     }
 }
