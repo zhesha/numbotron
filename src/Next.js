@@ -9,7 +9,7 @@ class Next extends CellBase {
     }
 
     generate () {
-        this.value = Math.round(Math.random() * 3);
+        this.value = Math.round(Math.random() * 2 + 1);
     }
 }
 
